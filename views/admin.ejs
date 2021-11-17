@@ -6,15 +6,28 @@
 <body>
     <table style="text-align: center;">
         <tr>
-            <td>Funcionario</td>
-            <td>Convidado</td>
-            <td>Alcóol</td>
+            <td><strong> Funcionario </strong></td>
+            <td><strong> Convidado </strong></td>
         </tr>
-        <tr>
-            <td>Lucas Manoel</td>
-            <td>---</td>
-            <td>0.2l</td>
-        </tr>
+
+        <!-- A ideia é criar um elemento html <tr> para cada 
+        item da lista de funcionarios participantes-->
+
+        <% participantes.forEach(function (participantes) {%>
+            <tr>
+                <td><%=participantes.nome%></td>
+                <% if(!participantes.convidado){%> 
+                    <td>---</td>
+                <% } else{ %> 
+                    <td><%=participantes.nomeConvidado%></td>
+                <% } %> 
+            </tr>
+        <% }) %>
     </table>
+
+    <strong> Total de Participantes: </strong> <%=contador%> 
+    <br>
+
+    <strong> Litros de Alcool Gel Necessários: </strong> <%= contador *1.5 %>
 </body>
 </html>
